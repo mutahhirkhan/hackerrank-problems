@@ -62,6 +62,21 @@ function timeConversion(s) {
 }
 
 
+function timeConversionSolutionTwo(input) {
+	var timeStr = input.toString(),
+		amPm = timeStr.slice(-2),
+		timeTab = timeStr.slice(0, 8).split(":");
+
+	if (amPm === "PM") {
+		timeTab[0] = timeTab[0] === "12" ? "12" : parseInt(timeTab[0]) + 12;
+	} else {
+		timeTab[0] = timeTab[0] === "12" ? "00" : timeTab[0];
+	}
+
+	var to24 = timeTab.join(":");
+	console.log(to24);
+}
+
 let times = [
 	"07:05:45PM",
 	"10:30:15AM",
