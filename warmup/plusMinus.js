@@ -58,7 +58,7 @@ The proportions of occurrence are positive: = 0.500000, negative: = 0.333333 and
 function plusMinus(arr) {
 	let postives = [],
 		negatives = [],
-		zeroes = [];
+		zeroes = []; 
 
 	arr.forEach((num) => {
 		num === 0 ? zeroes.push(num) : num > 0 ? postives.push(num) : negatives.push(num);
