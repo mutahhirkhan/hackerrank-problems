@@ -41,13 +41,13 @@ function timeConversion(s) {
 	//special case if time is 12AM or 12PM
 	if (s.length > 1) {
 		if(s[0] === '1' && s[1] === '2'){
-			if(s[s.length - 2] === "A"){
+			if(s[s.length - 2].toLowerCase() === "a"){
 				s = s.replaceAt(0, '0');
 				s = s.replaceAt(1, '0');
 			}
 		}
 		//directly accessing for less computation
-		else if (s[s.length - 2] === "P") {
+		else if (s[s.length - 2].toLowerCase() === "p") {
 			let newPrefix = String(Number(s[0] + s[1]) + 12);
 
 			s = s.replaceAt(0, newPrefix[0]);
@@ -56,7 +56,8 @@ function timeConversion(s) {
 	}
 
 	//multiple replacements at a time.
-	s = s.replace(/AM|PM/g, "");
+	s = s.replace(/AM|am|pm|PM/g, "");
+	console.log(s)
 	return s;
 }
 
