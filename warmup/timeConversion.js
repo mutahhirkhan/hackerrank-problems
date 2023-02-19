@@ -59,7 +59,23 @@ function timeConversion(s) {
 	s = s.replace(/AM|PM/g, "");
 	return s;
 }
-// timeConversion('07:05:45PM')
+
+
+function timeConversionUsingDate(dateString) {
+  // Create a new Date object from the input string
+  const date = new Date(dateString);
+
+  // Get the hours, minutes, and seconds from the date object
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+
+  // Format the time as a string in 24-hour format
+  const timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+	console.log(timeString)
+  return timeString;
+}
 
 let times = [
 	"07:05:45PM",
